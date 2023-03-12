@@ -31,7 +31,34 @@
                                 <td>
                                     <a href="{{ url('/students/' . $student->id)}}" title="view student" class="btn btn-primary">view</a>
                                     <a href="{{ url('/students/' . $student->id . '/edit')}}" title="Edit student" class="btn btn-warning">Edit</a>
-                                    <a href="{{ url('/students/' . $student->id . '/delete')}}" title="delete student" class="btn btn-danger">delete</a>
+
+
+                                    <button title="delete student" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$student->id}}">delete</button>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop{{$student->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          do u really wanna delete this student ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="{{ url('/students/' . $student->id)}}" method="POST" style="display:inline">
+            @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger" >delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
                                 </td>
                             </tr>
                             @endforeach

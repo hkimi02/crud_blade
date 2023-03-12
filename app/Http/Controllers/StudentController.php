@@ -79,6 +79,10 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $student=Student::find($id);
+        $student->delete();
+        $students=Student::all();
+        $message="student deleted succesfully ! ";
+        return view('students.index',compact('message','students'));
     }
 }
