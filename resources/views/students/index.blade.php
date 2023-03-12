@@ -10,7 +10,10 @@
                 <div class="card-body">
                     <a href="{{ url('/students/create')}}" class="btn btn-success" title="add new student">add new</a>
                     <table class="table mt-5">
+                        @isset($message)
                         <div class="alert alert-success">{{ $message }}</div>
+                        @endisset
+
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -26,7 +29,7 @@
                                 <td>{{$student->email}}</td>
                                 <td>{{$student->phone}}</td>
                                 <td>
-                                    <a href="{{ url('/student/')}}" title="view student" class="btn btn-primary">view</a>
+                                    <a href="{{ url('/students/' . $student->id)}}" title="view student" class="btn btn-primary">view</a>
                                     <a href="" title="Edit student" class="btn btn-warning">Edit</a>
                                     <a href="" title="delete student" class="btn btn-danger">delete</a>
                                 </td>
