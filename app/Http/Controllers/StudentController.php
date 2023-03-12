@@ -29,7 +29,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->email);
+        Student::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+        ]);
+        $message='student added !';
+        $students=Student::all();
+        return view('students.index',compact('message','students'));
     }
 
     /**
