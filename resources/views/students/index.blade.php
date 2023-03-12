@@ -30,8 +30,8 @@
                                 <td>{{$student->phone}}</td>
                                 <td>
                                     <a href="{{ url('/students/' . $student->id)}}" title="view student" class="btn btn-primary">view</a>
-                                    <a href="" title="Edit student" class="btn btn-warning">Edit</a>
-                                    <a href="" title="delete student" class="btn btn-danger">delete</a>
+                                    <a href="{{ url('/students/' . $student->id . '/edit')}}" title="Edit student" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/students/' . $student->id . '/delete')}}" title="delete student" class="btn btn-danger">delete</a>
                                 </td>
                             </tr>
                             @endforeach
