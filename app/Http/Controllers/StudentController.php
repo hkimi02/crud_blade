@@ -12,7 +12,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students=Student::all();
+        $students=Student::paginate(3);
         return view ('students.index')->with('students',$students);
     }
 
@@ -36,7 +36,7 @@ class StudentController extends Controller
             'phone'=>$request->phone,
         ]);
         $message='student added !';
-        $students=Student::all();
+        $students=Student::paginate(3);
         return view('students.index',compact('message','students'));
     }
 
@@ -70,7 +70,7 @@ class StudentController extends Controller
             'phone'=>$request->phone,
         ]);
         $message="student updated succesfully ! ";
-        $students=Student::all();
+        $students=Student::paginate(3);
         return view('students.index',compact('message','students'));
     }
 
@@ -81,7 +81,7 @@ class StudentController extends Controller
     {
         $student=Student::find($id);
         $student->delete();
-        $students=Student::all();
+        $students=Student::paginate(3);
         $message="student deleted succesfully ! ";
         return view('students.index',compact('message','students'));
     }

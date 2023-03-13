@@ -64,6 +64,9 @@
                             @endforeach
                         </thead>
                     </table>
+                    <div class="d-inline-block card" style="height:300px">
+                        {{ $students->links() }}
+                    </div>
                 </div>
             </div>
         </div>
