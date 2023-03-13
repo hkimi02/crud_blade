@@ -85,4 +85,9 @@ class StudentController extends Controller
         $message="student deleted succesfully ! ";
         return view('students.index',compact('message','students'));
     }
+    public function search(Request $request){
+        $searchName=$request->searchName;
+        $students=Student::where('name',"LIKE","%". $request->searchName ."%")->paginate(3);
+        return view('students.index',compact('searchName','students'));
+    }
 }

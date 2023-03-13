@@ -6,6 +6,18 @@
             <div class="card">
                 <div class="card-header">
                         <h2>students list</h2>
+                        <div class="card my-4">
+                            <h5 class="card-header">Recherche</h5>
+                            <form class="card-body" action="/search" method="GET" role="search">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Rechercher..." name="searchName" value="{{isset($searchName) ? $searchName : ''}}">
+                                    <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="submit">Go!</button>
+                              </span>
+                                </div>
+                            </form>
+                        </div>
                 </div>
                 <div class="card-body">
                     <a href="{{ url('/students/create')}}" class="btn btn-success" title="add new student">add new</a>
