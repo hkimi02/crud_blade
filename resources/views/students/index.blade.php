@@ -7,11 +7,11 @@
                 <div class="card-header">
                         <h2>students list</h2>
                         <div class="card my-4">
-                            <h5 class="card-header">Recherche</h5>
+                            <h5 class="card-header">search</h5>
                             <form class="card-body" action="/search" method="GET" role="search">
                                 @csrf
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Rechercher..." name="searchName" value="{{isset($searchName) ? $searchName : ''}}">
+                                    <input type="text" class="form-control" placeholder="search..." name="searchName" value="{{isset($searchName) ? $searchName : ''}}" oninput="this.form.submit()">
                                     <span class="input-group-btn">
                                 <button class="btn btn-secondary" type="submit">Go!</button>
                                 </span>
