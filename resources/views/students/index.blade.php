@@ -14,7 +14,7 @@
                                     <input type="text" class="form-control" placeholder="Rechercher..." name="searchName" value="{{isset($searchName) ? $searchName : ''}}">
                                     <span class="input-group-btn">
                                 <button class="btn btn-secondary" type="submit">Go!</button>
-                              </span>
+                                </span>
                                 </div>
                             </form>
                         </div>
